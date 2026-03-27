@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Siddhangana Bhagat — Brand Strategist, Consumer Psychology & Growth Marketing Professional">
+  <title>Siddhangana Bhagat — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- LOADER -->
+  <div class="loader" id="loader">
+    <div class="loader-monogram">SB</div>
+    <div class="loader-bar"><div class="loader-fill"></div></div>
+    <div class="loader-sub">Loading Portfolio</div>
+  </div>
+
+  <!-- SCROLL PROGRESS -->
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- CURSOR (desktop only) -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">SB</a>
+      <div class="nav-links">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE OVERLAY MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" class="mobile-link">About</a>
+    <a href="#experience" class="mobile-link">Experience</a>
+    <a href="#work" class="mobile-link">Work</a>
+    <a href="#skills" class="mobile-link">Skills</a>
+    <a href="#contact" class="mobile-link">Contact</a>
+    <div class="mobile-socials">
+      <a href="mailto:siddhangana2016@gmail.com">Email</a>
+      <a href="https://linkedin.com/in/siddhanganabhagat" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero" id="hero">
+      <div class="hero-bg">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="hero-grid"></div>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          Open to Opportunities
+        </div>
+
+        <h1 class="hero-name">
+          <span class="hero-first">Siddhangana</span>
+          <em class="hero-last">Bhagat</em>
+        </h1>
+
+        <p class="hero-tagline">
+          <span>Brand Strategist</span>
+          <span class="sep">·</span>
+          <span>Consumer Psychology</span>
+          <span class="sep">·</span>
+          <span>Growth Marketing</span>
+        </p>
+
+        <div class="hero-cta">
+          <a href="#work" class="btn btn-gold">View My Work</a>
+          <a href="#contact" class="btn btn-outline">Get in Touch</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="h-stat">
+            <div class="h-stat-num" data-target="12" data-prefix="₹" data-suffix="L+">₹0L+</div>
+            <div class="h-stat-label">Revenue Generated</div>
+          </div>
+          <div class="h-divider"></div>
+          <div class="h-stat">
+            <div class="h-stat-num" data-target="8" data-suffix="×">0×</div>
+            <div class="h-stat-label">Brand Growth</div>
+          </div>
+          <div class="h-divider"></div>
+          <div class="h-stat">
+            <div class="h-stat-num" data-target="2" data-suffix="+ Yrs">0+ Yrs</div>
+            <div class="h-stat-label">Experience</div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#about" class="hero-scroll-hint">
+        <div class="scroll-mouse">
+          <div class="scroll-wheel"></div>
+        </div>
+        <span>Scroll</span>
+      </a>
+    </section>
+
+    <!-- ==================== ABOUT ==================== -->
+    <section class="section" id="about">
+      <div class="container">
+        <p class="section-eyebrow">✦ About Me</p>
+        <div class="about-grid">
+          <div class="about-left reveal">
+            <h2 class="section-title">Where psychology <em>meets brand growth</em></h2>
+            <p class="about-body">I'm a results-driven marketing professional with a rare combination: a <strong>Master's in Applied Psychology from TISS</strong> and hands-on experience building brands, scaling ecommerce, and engineering growth systems from scratch.</p>
+            <p class="about-body">While most marketers study <em>what</em> people buy, I study <em>why</em> they do. That consumer psychology lens shapes everything — from campaign strategy to influencer selection to content that actually converts.</p>
+            <div class="about-chips">
+              <span class="chip">TISS Alumna</span>
+              <span class="chip">Consumer Psychology Minor</span>
+              <span class="chip">Based in Jammu, India</span>
+              <span class="chip">Remote-Ready</span>
+            </div>
+          </div>
+          <div class="about-right reveal" style="--rd:0.15s">
+            <div class="rotating-card">
+              <p class="rc-label">I am a</p>
+              <div class="rc-words" id="rcWords">
+                <span class="rcw active">Brand Strategist</span>
+                <span class="rcw">Growth Marketer</span>
+                <span class="rcw">Consumer Researcher</span>
+                <span class="rcw">Ecommerce Builder</span>
+                <span class="rcw">Psychology Graduate</span>
+              </div>
+            </div>
+            <div class="fact-list">
+              <div class="fact-item">
+                <div class="fact-ico">🎓</div>
+                <span>MA Applied Psychology, TISS Mumbai (2023–2025)</span>
+              </div>
+              <div class="fact-item">
+                <div class="fact-ico">📍</div>
+                <span>Based in Jammu, India — open to remote roles</span>
+              </div>
+              <div class="fact-item">
+                <div class="fact-ico">🚀</div>
+                <span>Scaled brands from zero to ₹12L+ revenue</span>
+              </div>
+              <div class="fact-item">
+                <div class="fact-ico">🧠</div>
+                <span>Consumer psychology lens in every strategy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== EXPERIENCE ==================== -->
+    <section class="section section-alt" id="experience">
+      <div class="container">
+        <p class="section-eyebrow">✦ Experience</p>
+        <h2 class="section-title">The journey <em>so far</em></h2>
+
+        <div class="timeline">
+
+          <div class="tl-item reveal" data-side="left">
+            <div class="tl-line-dot"></div>
+            <div class="tl-card">
+              <div class="tl-header">
+                <div class="tl-meta">
+                  <span class="tl-date">Dec 2023 — Present</span>
+                  <span class="tl-current">● Current</span>
+                </div>
+                <h3 class="tl-role">Founder & Social Media Manager</h3>
+                <a href="https://www.instagram.com/jen.curates?igsh=NGVubXlwb2pkc3Vo&utm_source=qr" target="_blank" class="tl-company">Jen Curates — Fashion E-commerce ↗</a>
+              </div>
+              <ul class="tl-bullets">
+                <li>Founded and scaled Instagram-based fashion business to <strong>₹12L+ revenue</strong> through strategic brand management and paid social</li>
+                <li>Drove <strong>40% increase in engagement</strong> and <strong>30% ROI growth</strong> via Facebook & Instagram Ads</li>
+                <li>Built high-converting sales funnels integrating influencer marketing, organic content, and performance campaigns</li>
+                <li>Designed full influencer pipeline: Modash discovery → Phantombuster data enrichment → AI-personalised Gmail outreach</li>
+              </ul>
+              <div class="tl-tags">
+                <span class="tag">Meta Ads</span>
+                <span class="tag">Influencer Marketing</span>
+                <span class="tag">AI Automation</span>
+                <span class="tag">Growth</span>
+                <span class="tag">Ecommerce</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tl-item reveal" data-side="right" style="--rd:0.1s">
+            <div class="tl-line-dot"></div>
+            <div class="tl-card">
+              <div class="tl-header">
+                <div class="tl-meta">
+                  <span class="tl-date">Nov 2024 — Feb 2025</span>
+                </div>
+                <h3 class="tl-role">Social Media Consultant</h3>
+                <a href="https://smacchen.com" target="_blank" class="tl-company">Smæccan — Non-Alcoholic Luxury Brand (EU/India) ↗</a>
+              </div>
+              <ul class="tl-bullets">
+                <li>Spearheaded India B2C go-to-market launch, driving <strong>8× revenue growth</strong> through localised digital marketing</li>
+                <li>Built Shopify store and full ecommerce infrastructure from zero — product pages, SEO, checkout flows</li>
+                <li>Established social media presence across Instagram, Facebook & LinkedIn with end-to-end content strategy</li>
+                <li>Created high-converting Meta Ads campaigns for Indian market customer acquisition</li>
+              </ul>
+              <div class="tl-tags">
+                <span class="tag">Brand Strategy</span>
+                <span class="tag">Shopify</span>
+                <span class="tag">Ecommerce</span>
+                <span class="tag">B2C Launch</span>
+                <span class="tag">Meta Ads</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tl-item reveal" data-side="left" style="--rd:0.2s">
+            <div class="tl-line-dot"></div>
+            <div class="tl-card">
+              <div class="tl-header">
+                <div class="tl-meta">
+                  <span class="tl-date">Sep 2022 — Nov 2023</span>
+                </div>
+                <h3 class="tl-role">Graphic Designer & Market Research Analyst</h3>
+                <div class="tl-company-plain">ATHLARC — Health & Fitness</div>
+              </div>
+              <ul class="tl-bullets">
+                <li>Conducted in-depth market research across health, nutrition & fitness verticals to inform content strategy</li>
+                <li>Translated research insights into visually compelling presentations improving audience engagement metrics</li>
+                <li>Designed content using visual storytelling and creative direction principles</li>
+              </ul>
+              <div class="tl-tags">
+                <span class="tag">Market Research</span>
+                <span class="tag">Canva</span>
+                <span class="tag">Visual Storytelling</span>
+                <span class="tag">Brand Content</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tl-item reveal" data-side="right" style="--rd:0.3s">
+            <div class="tl-line-dot"></div>
+            <div class="tl-card">
+              <div class="tl-header">
+                <div class="tl-meta">
+                  <span class="tl-date">Jun 2022 — Jul 2022</span>
+                </div>
+                <h3 class="tl-role">Campus Ambassador (Marketing Intern)</h3>
+                <div class="tl-company-plain">GoodLives — Mental Health Organisation</div>
+              </div>
+              <ul class="tl-bullets">
+                <li>Promoted mental health awareness through social media campaigns and event marketing</li>
+                <li>Acted as brand liaison between students and organisation, managing community engagement</li>
+              </ul>
+              <div class="tl-tags">
+                <span class="tag">Community Marketing</span>
+                <span class="tag">Social Media</span>
+                <span class="tag">Events</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== WORK ==================== -->
+    <section class="section" id="work">
+      <div class="container">
+        <p class="section-eyebrow">✦ Selected Work</p>
+        <h2 class="section-title">Projects that <em>moved numbers</em></h2>
+
+        <div class="work-grid">
+          <a href="https://www.instagram.com/jen.curates?igsh=NGVubXlwb2pkc3Vo&utm_source=qr" target="_blank" rel="noopener" class="work-card wc-1 reveal">
+            <div class="wc-num">01</div>
+            <div class="wc-body">
+              <h3 class="wc-title">Jen Curates</h3>
+              <p class="wc-sub">Fashion E-commerce Brand</p>
+              <p class="wc-desc">Founded and scaled an Instagram-based fashion brand to ₹12L+ revenue. Built the full marketing engine — paid social, organic content, influencer campaigns — and layered in AI automation for outreach at scale.</p>
+              <div class="wc-result">₹12L+ Revenue · 40% Engagement ↑ · 30% ROI ↑</div>
+            </div>
+            <div class="wc-tags">
+              <span class="tag">Instagram</span>
+              <span class="tag">Meta Ads</span>
+              <span class="tag">Influencer</span>
+              <span class="tag">AI Automation</span>
+            </div>
+            <div class="wc-arrow">↗</div>
+          </a>
+
+          <a href="https://smacchen.com" target="_blank" rel="noopener" class="work-card wc-2 reveal" style="--rd:0.1s">
+            <div class="wc-num">02</div>
+            <div class="wc-body">
+              <h3 class="wc-title">Smæccan</h3>
+              <p class="wc-sub">Luxury Non-Alcoholic Brand — India Launch</p>
+              <p class="wc-desc">End-to-end B2C India launch for a premium EU brand. Built the Shopify store, ecommerce infrastructure, social presence, and full content strategy from zero. Result: 8× revenue growth.</p>
+              <div class="wc-result">8× Revenue Growth · Full GTM Build</div>
+            </div>
+            <div class="wc-tags">
+              <span class="tag">Shopify</span>
+              <span class="tag">Brand Strategy</span>
+              <span class="tag">GTM</span>
+              <span class="tag">Ecommerce</span>
+            </div>
+            <div class="wc-arrow">↗</div>
+          </a>
+
+          <div class="work-card wc-3 reveal" style="--rd:0.2s">
+            <div class="wc-num">03</div>
+            <div class="wc-body">
+              <h3 class="wc-title">Influencer Outreach System</h3>
+              <p class="wc-sub">Growth Pipeline Architecture</p>
+              <p class="wc-desc">Designed a repeatable, scalable influencer discovery and outreach pipeline — Modash for niche filtering, Phantombuster for contact enrichment, AI-personalised Gmail sequences. Zero Instagram API restrictions.</p>
+              <div class="wc-result">Systematic · Scalable · Results-Driven</div>
+            </div>
+            <div class="wc-tags">
+              <span class="tag">Modash</span>
+              <span class="tag">Phantombuster</span>
+              <span class="tag">AI Personalisation</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="case-note reveal">
+          <span class="case-note-icon">📁</span>
+          <div>
+            <strong>Detailed case studies available on request</strong>
+            <p>Full campaign breakdowns, metrics, and strategy docs sent separately.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== METRICS BAND ==================== -->
+    <div class="metrics-band">
+      <div class="container">
+        <div class="metrics-grid">
+          <div class="metric">
+            <div class="metric-num counter" data-target="12" data-prefix="₹" data-suffix="L+">₹0L+</div>
+            <div class="metric-label">Revenue Generated</div>
+          </div>
+          <div class="metric">
+            <div class="metric-num counter" data-target="8" data-suffix="×">0×</div>
+            <div class="metric-label">Brand Revenue Growth</div>
+          </div>
+          <div class="metric">
+            <div class="metric-num counter" data-target="40" data-suffix="%">0%</div>
+            <div class="metric-label">Engagement Increase</div>
+          </div>
+          <div class="metric">
+            <div class="metric-num counter" data-target="30" data-suffix="%">0%</div>
+            <div class="metric-label">ROI Improvement</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== SKILLS ==================== -->
+    <section class="section section-alt" id="skills">
+      <div class="container">
+        <p class="section-eyebrow">✦ Core Skills</p>
+        <h2 class="section-title">What I <em>bring to the table</em></h2>
+
+        <div class="skills-wrap reveal">
+          <div class="skills-tabs" role="tablist">
+            <button class="s-tab active" data-tab="marketing" role="tab">Marketing Platforms</button>
+            <button class="s-tab" data-tab="design" role="tab">Design & Content</button>
+            <button class="s-tab" data-tab="research" role="tab">Research & Analytics</button>
+            <button class="s-tab" data-tab="strategy" role="tab">Marketing Skills</button>
+          </div>
+
+          <div class="skills-panel active" id="tab-marketing">
+            <div class="pills">
+              <span class="pill">Meta Ads Manager</span>
+              <span class="pill">Facebook Ads</span>
+              <span class="pill">Instagram Ads</span>
+              <span class="pill">Google Ads</span>
+              <span class="pill">LinkedIn Ads</span>
+              <span class="pill">Snapchat Ads</span>
+              <span class="pill">Google Analytics GA4</span>
+              <span class="pill">Instagram Insights</span>
+              <span class="pill">Hootsuite</span>
+              <span class="pill">Buffer</span>
+            </div>
+          </div>
+
+          <div class="skills-panel" id="tab-design">
+            <div class="pills">
+              <span class="pill">Canva</span>
+              <span class="pill">Figma</span>
+              <span class="pill">Adobe Photoshop</span>
+              <span class="pill">Adobe Illustrator</span>
+              <span class="pill">Video Editing</span>
+              <span class="pill">Visual Storytelling</span>
+              <span class="pill">UI/UX Design</span>
+              <span class="pill">Content Creation</span>
+            </div>
+          </div>
+
+          <div class="skills-panel" id="tab-research">
+            <div class="pills">
+              <span class="pill">Qualitative Research</span>
+              <span class="pill">Quantitative Research</span>
+              <span class="pill">Survey Design</span>
+              <span class="pill">Data Analysis</span>
+              <span class="pill">Consumer Behavior Analysis</span>
+              <span class="pill">Competitive Analysis</span>
+              <span class="pill">Market Research</span>
+              <span class="pill">A/B Testing</span>
+              <span class="pill">ROI Analysis</span>
+            </div>
+          </div>
+
+          <div class="skills-panel" id="tab-strategy">
+            <div class="pills">
+              <span class="pill">SEO / SEM</span>
+              <span class="pill">PPC</span>
+              <span class="pill">Email Marketing</span>
+              <span class="pill">Content Strategy</span>
+              <span class="pill">Brand Strategy</span>
+              <span class="pill">Sales Funnel Optimization</span>
+              <span class="pill">Ecommerce Operations</span>
+              <span class="pill">Influencer Marketing</span>
+              <span class="pill">Conversion Rate Optimization</span>
+              <span class="pill">Growth Hacking</span>
+              <span class="pill">Copywriting</span>
+              <span class="pill">Community Management</span>
+              <span class="pill">Lead Generation</span>
+              <span class="pill">Campaign Management</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== EDUCATION ==================== -->
+    <section class="section" id="education">
+      <div class="container">
+        <p class="section-eyebrow">✦ Education</p>
+        <h2 class="section-title">The academic <em>foundation</em></h2>
+        <div class="edu-grid">
+          <div class="edu-card reveal">
+            <div class="edu-year-badge">2023 — 2025</div>
+            <div class="edu-icon">🎓</div>
+            <h3 class="edu-school">Tata Institute of Social Sciences</h3>
+            <p class="edu-location">TISS, Mumbai</p>
+            <p class="edu-degree">Master of Arts (M.A.)</p>
+            <p class="edu-field">Applied Psychology — Clinical & Counselling Practice</p>
+            <div class="edu-minor">Minor: Consumer Psychology · Behavioral Research · Data Analysis</div>
+            <div class="edu-gpa">GPA 7.2 / 10.0</div>
+          </div>
+          <div class="edu-card reveal" style="--rd:0.1s">
+            <div class="edu-year-badge">2020 — 2023</div>
+            <div class="edu-icon">📚</div>
+            <h3 class="edu-school">Indraprastha College for Women</h3>
+            <p class="edu-location">University of Delhi</p>
+            <p class="edu-degree">Bachelor of Arts Hons. (B.A.)</p>
+            <p class="edu-field">Psychology</p>
+            <div class="edu-minor">Minor: Research Methods · Statistics · Consumer Behavior</div>
+            <div class="edu-gpa">GPA 8.41 / 10.0</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== RESEARCH ==================== -->
+    <section class="section section-alt">
+      <div class="container">
+        <p class="section-eyebrow">✦ Research Projects</p>
+        <h2 class="section-title">Academic work with <em>real-world applications</em></h2>
+        <div class="research-grid">
+          <div class="research-card reveal">
+            <div class="research-tag">Organizational Culture</div>
+            <h3 class="research-title">Culture Unveiled: Google's Organizational Culture Case Study</h3>
+            <p class="research-desc">Analyzed Google's culture, employee engagement strategies, and brand success factors through primary and secondary research — applicable to employer branding strategy.</p>
+          </div>
+          <div class="research-card reveal" style="--rd:0.1s">
+            <div class="research-tag">Consumer Behavior</div>
+            <h3 class="research-title">Gen Z Digital Behavior & Relationship Patterns (2025)</h3>
+            <p class="research-desc">Explored digital communication behaviors — breadcrumbing, ghosting — in Gen Z with direct insights applicable to Gen Z audience targeting and content strategy.</p>
+          </div>
+          <div class="research-card reveal" style="--rd:0.15s">
+            <div class="research-tag">Behavioral Research</div>
+            <h3 class="research-title">IT Sector Employee Behavior During COVID-19 WFH</h3>
+            <p class="research-desc">Identified behavioral patterns and stressors during remote work — insights relevant to B2B marketing and employee experience campaigns.</p>
+          </div>
+          <div class="research-card reveal" style="--rd:0.2s">
+            <div class="research-tag">Inclusive Design</div>
+            <h3 class="research-title">Breaking Barriers: Accessible Design & Inclusive Marketing</h3>
+            <p class="research-desc">Research on accessibility in design with applications to inclusive marketing strategies and UX optimization across digital touchpoints.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CONTACT ==================== -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="contact-inner">
+          <p class="section-eyebrow" style="justify-content:center">✦ Get in Touch</p>
+          <h2 class="contact-heading">Let's build something <em>remarkable</em></h2>
+          <p class="contact-sub">Open to full-time roles, consulting projects, and brand collaborations in marketing, growth, and brand strategy.</p>
+
+          <div class="contact-links">
+            <a href="mailto:siddhangana2016@gmail.com" class="contact-link">
+              <div class="cl-icon">✉</div>
+              <div class="cl-body">
+                <div class="cl-label">Email</div>
+                <div class="cl-value">siddhangana2016@gmail.com</div>
+              </div>
+              <div class="cl-arrow">→</div>
+            </a>
+            <a href="https://linkedin.com/in/siddhanganabhagat" target="_blank" rel="noopener" class="contact-link">
+              <div class="cl-icon">in</div>
+              <div class="cl-body">
+                <div class="cl-label">LinkedIn</div>
+                <div class="cl-value">linkedin.com/in/siddhanganabhagat</div>
+              </div>
+              <div class="cl-arrow">→</div>
+            </a>
+            <a href="tel:+919149682812" class="contact-link">
+              <div class="cl-icon">📞</div>
+              <div class="cl-body">
+                <div class="cl-label">Phone</div>
+                <div class="cl-value">+91 914 968 2812</div>
+              </div>
+              <div class="cl-arrow">→</div>
+            </a>
+          </div>
+
+          <a href="mailto:siddhangana2016@gmail.com" class="btn btn-gold btn-lg">Say Hello ✦</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">Siddhangana Bhagat</div>
+        <div class="footer-copy">© 2025 · Brand Strategy · Consumer Psychology · Growth</div>
+        <div class="footer-socials">
+          <a href="mailto:siddhangana2016@gmail.com">Email</a>
+          <a href="https://linkedin.com/in/siddhanganabhagat" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BACK TO TOP -->
+  <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
