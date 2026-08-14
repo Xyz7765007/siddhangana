@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Siddhangana Bhagat · The Grimoire</title>
-<meta name="description" content="An interactive library. Walk the hall, find the sigils, open the grimoire of Siddhangana Bhagat: psychology-led marketer and AI systems architect.">
+<meta name="description" content="An interactive library. Walk the hall, find the sigils, open the grimoire of Siddhangana Bhagat: content-led marketer and AI systems architect.">
 <meta name="author" content="Siddhangana Bhagat">
 <meta name="theme-color" content="#0A0509">
 <meta name="color-scheme" content="dark">
@@ -51,7 +51,7 @@
   --ease:cubic-bezier(.22,.68,.32,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{height:100%;overflow:hidden;background:var(--ink);color:var(--rose)}
+html,body{height:100%;overflow:hidden;background:var(--ink);color:var(--rose);-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{font-family:var(--body);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overscroll-behavior:none}
 button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 a{color:inherit}
@@ -90,6 +90,8 @@ a{color:inherit}
   border:1px solid rgba(231,191,206,.4);background:linear-gradient(180deg,rgba(88,24,43,.5),rgba(46,14,25,.3));
   box-shadow:0 0 0 rgba(231,191,206,0),inset 0 0 24px rgba(231,191,206,.06);transition:.5s var(--ease)}
 .enter:hover,.enter:focus-visible{background:linear-gradient(180deg,rgba(120,32,58,.6),rgba(58,16,30,.4));box-shadow:0 0 34px rgba(231,191,206,.3),inset 0 0 30px rgba(231,191,206,.12);letter-spacing:.34em}
+.enter-note{display:block;margin-top:.55rem;font-family:var(--display);font-size:.47rem;letter-spacing:.24em;
+  text-transform:uppercase;color:rgba(231,191,206,.42)}
 .gate-hint{margin-top:1.5rem;display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap}
 .gate-hint span{font-family:var(--display);font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(231,191,206,.42)}
 
@@ -97,7 +99,7 @@ a{color:inherit}
 #library{background:radial-gradient(80% 60% at 50% 50%,#150810,#070308 70%);touch-action:none}
 #viewport{position:absolute;inset:0;overflow:hidden}
 #scaler{position:absolute;left:50%;top:50%;perspective:900px;perspective-origin:50% 50%;transform-origin:50% 50%}
-#world{position:absolute;inset:0;transform-style:preserve-3d;will-change:transform;--CW:1500px;--CH:1000px;--SEG:800px;--RW:1620px}
+#world{position:absolute;inset:0;-webkit-transform-style:preserve-3d;transform-style:preserve-3d;will-change:transform;--CW:1500px;--CH:1000px;--SEG:800px;--RW:1620px}
 .pl{position:absolute;left:50%;top:50%;--dim:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0))}
 
 /* walls */
@@ -107,6 +109,8 @@ a{color:inherit}
 .wall .bay::after{content:"";position:absolute;left:0;right:0;bottom:0;height:9px;
   background:linear-gradient(180deg,#3a2018,#1a0d0a 60%,#000);box-shadow:0 -10px 18px rgba(0,0,0,.85)}
 .wall .bay i{position:absolute;inset:0;background-repeat:no-repeat;background-position:top,bottom;background-size:100% 30%,100% 100%}
+.wall.long .bay i{background-repeat:repeat-x,repeat-x;background-position:top left,bottom left;
+  background-size:calc(var(--SEG) * 2) 30%,calc(var(--SEG) * 2) 100%}
 .wall .bay em{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.82),rgba(0,0,0,.22) 26%,rgba(0,0,0,.06) 56%,rgba(0,0,0,.5))}
 .wall::after{content:"";position:absolute;inset:0;pointer-events:none;
   background-image:var(--dim),linear-gradient(90deg,rgba(6,2,6,.55),transparent 15%,transparent 85%,rgba(6,2,6,.55))}
@@ -200,13 +204,16 @@ a{color:inherit}
 .track .lit{position:absolute;left:0;top:-1px;height:3px;background:linear-gradient(90deg,rgba(231,191,206,.1),var(--blush));box-shadow:0 0 14px rgba(247,230,236,.8);width:0}
 .track .lit::after{content:"";position:absolute;right:-4px;top:-3px;width:8px;height:8px;transform:rotate(45deg);background:var(--blush);box-shadow:0 0 14px rgba(247,230,236,1)}
 .walk-hint{font-family:var(--display);font-size:.56rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(231,191,206,.5);text-align:center}
+.skip-door{pointer-events:auto;margin-top:.35rem;font-family:var(--display);font-size:.48rem;letter-spacing:.22em;
+  text-transform:uppercase;color:rgba(231,191,206,.42);border-bottom:1px solid rgba(231,191,206,.2);padding-bottom:2px}
+.skip-door:hover{color:var(--blush);border-color:rgba(231,191,206,.6)}
 .drift-btn{pointer-events:auto;font-family:var(--display);font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--blush);
-  border:1px solid rgba(231,191,206,.3);padding:.6rem 1.4rem;background:rgba(46,14,25,.4);backdrop-filter:blur(4px);transition:.4s var(--ease)}
+  border:1px solid rgba(231,191,206,.3);padding:.6rem 1.4rem;background:rgba(46,14,25,.4);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);transition:.4s var(--ease)}
 .drift-btn:hover,.drift-btn.on{background:rgba(88,24,43,.55);box-shadow:0 0 24px rgba(231,191,206,.25)}
 
 .turnrow{display:flex;align-items:center;gap:.5rem;pointer-events:auto}
 .turn-btn{width:2.5rem;height:2.5rem;display:grid;place-items:center;font-size:1.05rem;color:rgba(231,191,206,.8);
-  border:1px solid rgba(231,191,206,.3);background:rgba(23,10,17,.55);backdrop-filter:blur(4px);transition:.3s var(--ease)}
+  border:1px solid rgba(231,191,206,.3);background:rgba(23,10,17,.55);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);transition:.3s var(--ease)}
 .turn-btn:hover,.turn-btn:active{color:var(--blush);border-color:rgba(231,191,206,.7);background:rgba(88,24,43,.55)}
 .marks{position:absolute;left:0;right:0;top:-4px;height:9px;pointer-events:none}
 .marks i{position:absolute;top:0;width:7px;height:7px;margin-left:-3.5px;transform:rotate(45deg);
@@ -224,7 +231,7 @@ a{color:inherit}
 
 .compass{position:fixed;left:50%;top:calc(env(safe-area-inset-top) + 9.5rem);transform:translateX(-50%);z-index:50;
   display:none;align-items:center;gap:.5rem;padding:.42rem .85rem;pointer-events:none;
-  border:1px solid rgba(231,191,206,.26);background:rgba(23,10,17,.55);backdrop-filter:blur(4px)}
+  border:1px solid rgba(231,191,206,.26);background:rgba(23,10,17,.55);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
 .compass.on{display:flex}
 .compass .cw{font-size:.8rem;color:var(--blush);text-shadow:0 0 10px rgba(247,230,236,.9)}
 .compass .ct{font-family:var(--display);font-size:.5rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(231,191,206,.75)}
@@ -271,17 +278,17 @@ a{color:inherit}
 .pool{position:absolute;left:50%;translate:-50% 0;bottom:-14vmin;width:min(420px,70vw);height:14vmin;border-radius:50%;
   background:radial-gradient(closest-side,rgba(249,234,239,.45),transparent 72%);filter:blur(10px)}
 
-.book-bob{transform-style:preserve-3d;animation:bob 6.5s ease-in-out infinite}
+.book-bob{-webkit-transform-style:preserve-3d;transform-style:preserve-3d;animation:bob 6.5s ease-in-out infinite}
 @keyframes bob{0%,100%{transform:translateY(-6px)}50%{transform:translateY(10px)}}
-.book-spin{transform-style:preserve-3d;animation:orbit 15s linear infinite;transition:transform 1.1s var(--ease)}
+.book-spin{-webkit-transform-style:preserve-3d;transform-style:preserve-3d;animation:orbit 15s linear infinite;transition:transform 1.1s var(--ease)}
 @keyframes orbit{from{transform:rotateX(-10deg) rotateY(0deg)}to{transform:rotateX(-10deg) rotateY(360deg)}}
-.book{position:relative;width:300px;height:432px;transform-style:preserve-3d}
-.face{position:absolute;left:50%;top:50%;transform-style:preserve-3d;backface-visibility:hidden;overflow:hidden}
+.book{position:relative;width:300px;height:432px;-webkit-transform-style:preserve-3d;transform-style:preserve-3d}
+.face{position:absolute;left:50%;top:50%;-webkit-transform-style:preserve-3d;transform-style:preserve-3d;-webkit-backface-visibility:hidden;backface-visibility:hidden;overflow:hidden}
 .cover{width:300px;height:432px;margin:-216px 0 0 -150px;background:linear-gradient(150deg,#3C1220,#1B0810 60%,#2A0D18);
   border:1px solid rgba(231,191,206,.32);box-shadow:0 0 38px rgba(231,191,206,.28)}
-.cover.front{transform:translateZ(23px);transform-origin:left center;transition:transform 1.05s var(--ease);backface-visibility:visible}
-.cover.front .front-face{position:absolute;inset:0;backface-visibility:hidden}
-.cover.front .inner-face{position:absolute;inset:0;transform:rotateY(180deg);backface-visibility:hidden;border:1px solid rgba(231,191,206,.2);
+.cover.front{transform:translateZ(23px);transform-origin:left center;transition:transform 1.05s var(--ease);-webkit-backface-visibility:visible;backface-visibility:visible}
+.cover.front .front-face{position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.cover.front .inner-face{position:absolute;inset:0;transform:rotateY(180deg);-webkit-backface-visibility:hidden;backface-visibility:hidden;border:1px solid rgba(231,191,206,.2);
   background:
    radial-gradient(60% 50% at 32% 28%,rgba(231,191,206,.2),transparent 62%),
    repeating-conic-gradient(from 14deg at 42% 62%,rgba(88,24,43,.45) 0 7deg,rgba(26,8,16,.5) 7deg 14deg),
@@ -319,7 +326,7 @@ a{color:inherit}
 .open-btn:hover{transform:translateY(-2px);box-shadow:0 0 54px rgba(249,234,239,.75);letter-spacing:.36em}
 .key-hint{display:block;margin-top:.8rem;font-family:var(--display);font-size:.52rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(231,191,206,.45)}
 .back-lib{position:fixed;top:calc(env(safe-area-inset-top) + 1rem);left:1.1rem;z-index:52;font-family:var(--display);font-size:.55rem;letter-spacing:.22em;
-  text-transform:uppercase;color:rgba(231,191,206,.6);border:1px solid rgba(231,191,206,.22);padding:.45rem .9rem;background:rgba(23,10,17,.5);backdrop-filter:blur(6px)}
+  text-transform:uppercase;color:rgba(231,191,206,.6);border:1px solid rgba(231,191,206,.22);padding:.45rem .9rem;background:rgba(23,10,17,.5);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
 .back-lib:hover{color:var(--blush);border-color:rgba(231,191,206,.5)}
 .chamber-open .book-spin{animation:none;transform:rotateY(0) rotateX(0) scale(1.06)}
 .chamber-open .cover.front{transform:translateZ(23px) rotateY(-152deg)}
@@ -337,7 +344,7 @@ a{color:inherit}
 .mini:hover,.mini:focus-visible{color:var(--blush);border-color:rgba(231,191,206,.55);background:rgba(88,24,43,.4)}
 
 .tome{position:relative;flex:1;min-height:0;display:flex;justify-content:center;perspective:2400px}
-.spread{position:relative;width:min(1240px,100%);display:grid;grid-template-columns:1fr 1fr;transform-style:preserve-3d;
+.spread{position:relative;width:min(1240px,100%);display:grid;grid-template-columns:1fr 1fr;-webkit-transform-style:preserve-3d;transform-style:preserve-3d;
   background:linear-gradient(160deg,#2C1119,#180912 55%,#240D16);border:1px solid rgba(231,191,206,.26);
   box-shadow:0 30px 90px rgba(0,0,0,.85),inset 0 0 100px rgba(0,0,0,.55)}
 .gutter{position:absolute;left:50%;top:0;bottom:0;width:70px;transform:translateX(-35px);pointer-events:none;z-index:4;
@@ -350,10 +357,10 @@ a{color:inherit}
   font-family:var(--display);font-size:.5rem;letter-spacing:.28em;color:rgba(231,191,206,.4)}
 
 /* the turning leaf: front and back are separate faces, so text is never mirrored */
-.turner{position:absolute;top:0;bottom:0;width:50%;z-index:6;display:none;transform-style:preserve-3d;will-change:transform}
+.turner{position:absolute;top:0;bottom:0;width:50%;z-index:6;display:none;-webkit-transform-style:preserve-3d;transform-style:preserve-3d;will-change:transform}
 .turner.fwd{left:50%;transform-origin:left center}
 .turner.back{left:0;transform-origin:right center}
-.tf{position:absolute;inset:0;backface-visibility:hidden;overflow:hidden;
+.tf{position:absolute;inset:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;overflow:hidden;
   background:linear-gradient(160deg,#2C1119,#180912 55%,#240D16);border:1px solid rgba(231,191,206,.2)}
 .tf.verso{transform:rotateY(180deg)}
 .tf::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:2}
@@ -421,7 +428,9 @@ a.linkline:hover{padding-left:.5rem;background:linear-gradient(90deg,rgba(88,24,
 .ms-bar .mini:hover{color:#2b1018;border-color:#8a6272;background:#f0e6dd}
 .ms{max-width:52rem;margin:0 auto;line-height:1.5;font-size:15px}
 .ms h1{font-size:1.9rem;letter-spacing:.01em;margin-bottom:.15rem}
-.ms .sub{font-size:.86rem;color:#5c4a52;margin-bottom:1.1rem;line-height:1.5}
+.ms .sub{font-size:.86rem;color:#5c4a52;margin-bottom:1.1rem;line-height:1.6}
+.ms a{color:#7A2F45;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:.6px}
+.ms a:hover{color:#2B1018}
 .ms h2{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:#7a2f45;border-bottom:1px solid #cbb;margin:1.3rem 0 .5rem;padding-bottom:.2rem}
 .ms h3{font-size:1rem;margin-top:.7rem}
 .ms .m{font-size:.83rem;color:#5c4a52;font-style:italic}
@@ -605,6 +614,9 @@ a.linkline:hover{padding-left:.5rem;background:linear-gradient(90deg,rgba(88,24,
 
 /* ═══ responsive ════════════════════════════════════════════ */
 @media (max-width:900px){
+  #grain{display:none}
+  .chand svg,.crt.bfly svg,.ch-arch svg{filter:none}
+  .flame{box-shadow:0 0 18px 8px rgba(230,160,90,.3)}
   .spread{grid-template-columns:1fr}
   .gutter{display:none}
   .turner{width:100%}
@@ -904,7 +916,8 @@ a.linkline:hover{padding-left:.5rem;background:linear-gradient(90deg,rgba(88,24,
     <p class="gate-role">AI systems architect · content and growth · applied psychology</p>
     <p class="gate-sub">A library was built for the work. Walk the hall, find what is hidden in the shelves, and open the grimoire at the far door.</p>
     <button class="enter" id="btn-enter">Enter the library</button>
-    <button class="enter" id="btn-rift" style="margin-top:.7rem;font-size:.6rem;padding:.72rem 1.7rem;border-color:rgba(231,191,206,.24)">⧗ Short on time? Take the rift</button>
+    <span class="enter-note">Optimized only for desktop</span>
+    <button class="enter" id="btn-rift" style="margin-top:.85rem;font-size:.6rem;padding:.72rem 1.7rem;border-color:rgba(231,191,206,.24)">⧗ Short on time? Take the rift</button>
     <div class="gate-hint">
       <span>Swipe or scroll to walk</span><span>Drag sideways to look</span><span>Tap the moths</span>
     </div>
@@ -939,6 +952,7 @@ a.linkline:hover{padding-left:.5rem;background:linear-gradient(90deg,rgba(88,24,
   <div class="track"><span class="lit" id="lit"></span><span class="marks" id="marks"></span></div>
   <div class="yawbar"><span class="ynotch" id="ynotch"></span><button class="ycentre" id="turnC">recentre</button></div>
   <span class="walk-hint" id="walk-hint">Drag sideways to look, up to walk</span>
+  <button class="skip-door" id="btn-skip">skip to the door ⟶</button>
 </footer>
 
 <div id="bloom"></div>
@@ -1175,7 +1189,7 @@ a.linkline:hover{padding-left:.5rem;background:linear-gradient(90deg,rgba(88,24,
 /* ═══════════════════════ CONTENT ═══════════════════════ */
 const PROFILE = {
   name:"Siddhangana Bhagat",
-  role:"Psychology-led Growth · AI Systems Architecture · Content &amp; Marketing Operations",
+  role:"Content-led marketer and AI systems architect",
   email:"siddhangana2016@gmail.com",
   linkedin:"linkedin.com/in/siddhanganabhagat",
   site:"siddhangana.vercel.app",
@@ -1186,63 +1200,62 @@ const PROFILE = {
 const EXPERIENCE = [
  {role:"AI Systems Architect &amp; Growth Lead", org:"eduInUK (Edutuxia Limited), London / Remote", when:"Jun 2026 – Present",
   pts:[
-   "Architected the organisation's operating system from scratch and delivered it inside the first eight weeks, consolidating content production, client onboarding, performance analytics, internal team workflows and delivery into one orchestrated environment on Claude API, n8n, Make.com and Airtable.",
-   "Engineered it to run at near total autonomy: <b>99% of recurring execution</b> is handled end to end by deployed agents, with human input scoped to trigger points and final approval, and automated quality gates validating agent output before release rather than after review.",
-   "Designed and deployed autonomous agents for content generation, research, enrichment and internal task routing, wired together through a REST API and webhook integration layer across the organisation's tooling.",
-   "Built and shipped full stack production applications inside the OS with custom web UI: client onboarding flows, performance analytics dashboards and multiple landing pages, all inside the same orchestration layer.",
+   "Architected the organisation's operating system from scratch and delivered it within the first eight weeks of engagement, consolidating content production, client onboarding, performance analytics, internal team workflows and delivery into one orchestrated environment on Claude API, n8n, Make.com and Airtable.",
+   "Engineered it to run at near total autonomy: <b>99% of recurring execution</b> across the organisation is handled end to end by deployed agents, with human input deliberately scoped to trigger points and final approval, and automated quality gates validating agent outputs pre-release rather than on review.",
+   "Designed and deployed autonomous agents for content generation, research, enrichment and internal task routing, wired together through a REST API and webhook integration layer spanning the organisation's tooling.",
+   "Built and shipped full stack production applications inside the OS with custom web UI: client onboarding flows, performance analytics dashboards and multiple landing pages, all operating within the same orchestration layer.",
    "<b>Event Lead, NISAU UK.</b> Owned end to end delivery of the flagship event, setting creative theme and visual direction while managing venue, vendors, logistics and on-ground operations; built a sponsor portal and the full cross-channel content plan.",
-   "<b>Content Strategy, Southall FC (UK).</b> Built the club's organic content strategy from zero: audience positioning, platform-native pillars, a rolling calendar and post design.",
-   "<b>Research, GGI Applied UK MBA.</b> Ran primary and secondary market research and competitive analysis to inform programme positioning, and built a lead enrichment automation to qualify and route applicants."
+   "<b>Content Strategy, Southall FC (UK).</b> Built the club's organic content strategy from zero, covering audience positioning, platform-native content pillars, a full rolling content calendar and post design."
   ]},
  {role:"Counsellor &amp; Qualitative Researcher", org:"Tata Institute of Social Sciences, Mumbai", when:"Jun 2025 – Jun 2026",
   pts:[
-   "Conducted qualitative research and developed detailed case studies across a live clinical caseload, maintaining structured documentation to confidentiality and anonymity standards.",
-   "Delivered individual therapy across children, adolescents, young adults and older adults, building individualised treatment plans and handling crisis intervention with structured risk assessment."
+   "Delivered individual therapy across children, adolescents, young adults and older adults, building individualised treatment plans and handling crisis intervention with structured risk assessment.",
+   "Ran the qualitative research function across a live clinical caseload: structured interviewing, thematic analysis and detailed case study development, documented to confidentiality and anonymity standards under supervision protocols."
   ]},
  {role:"Founder &amp; Growth Marketing Lead → Strategic Advisor", org:"Jen Curates", when:"Dec 2023 – Present",
   pts:[
-   "Founded and scaled an Instagram-first fashion e-commerce brand to <b>₹12L+ revenue</b>, owning brand strategy, content, paid acquisition and retention end to end; handed daily operations to a co-founder in Jun 2025 while keeping strategic oversight of social, content and influencer marketing.",
-   "Built the brand's content engine on Claude API and a custom prompting architecture, generating ad copy, product descriptions and weekly calendars at scale, cutting production time <b>60%</b> while lifting engagement <b>40%</b>.",
-   "Engineered a hands-free publishing pipeline on n8n and Make.com, wiring Airtable as content CMS into model-based copy generation and multi-platform distribution, removing <b>70%</b> of manual tasks.",
-   "Designed a scalable influencer acquisition system (Modash → Phantombuster → model-personalised outreach), systematising partnerships without Instagram API dependencies.",
-   "Ran Meta Ads with audience modeling, dynamic creative testing and automated bid strategies, improving <b>ROAS 30% QoQ</b>, and applied consumer psychology frameworks to segmentation, positioning and purchase behaviour analysis."
+   "Founded and scaled an Instagram-first fashion e-commerce brand to <b>₹12L+ revenue</b>, owning brand strategy, content, paid acquisition and retention end to end; transitioned daily operations to a co-founder in Jun 2025 while retaining strategic oversight of social, content and influencer marketing.",
+   "Built the brand's content engine on Claude API and custom prompting architecture, generating ad copy, product descriptions and weekly calendars at scale, cutting production time <b>60%</b> while lifting engagement <b>40%</b>.",
+   "Engineered a hands-free publishing pipeline on n8n and Make.com, wiring Airtable as content CMS into model-based copy generation and multi-platform distribution, eliminating <b>70%</b> of manual tasks.",
+   "Designed a scalable influencer acquisition system (Modash → Phantombuster → model-personalised outreach sequences), systematising partnerships without Instagram API dependencies.",
+   "Ran Meta Ads with audience modeling, dynamic creative testing and automated bid strategies, improving <b>ROAS 30% QoQ</b>; segmentation, positioning and creative angles built from consumer psychology frameworks and purchase behaviour analysis rather than platform defaults."
   ]},
  {role:"Social Media &amp; Growth Consultant", org:"Smæccan · Independent consulting", when:"Feb 2024 – Apr 2025",
   pts:[
-   "Led India go-to-market for a European luxury non-alcoholic brand, driving <b>8x revenue growth in under six months</b> through localised digital marketing and repositioning.",
-   "Built the entire digital infrastructure from zero: Shopify storefront, social channels, SEO foundation and Airtable campaign tracking; ran Meta Ads funnels acquiring customers at <b>sub ₹200 CAC</b>.",
+   "Led India go-to-market for a European luxury non-alcoholic brand, driving <b>8x revenue growth in under six months</b> through localised digital marketing and a repositioning grounded in primary research into local occasion and motivation drivers.",
+   "Built the entire digital infrastructure from zero: Shopify storefront, social channels, SEO foundation and Airtable-based campaign tracking; ran Meta Ads funnels acquiring customers at <b>sub ₹200 CAC</b>.",
    "Automated the full influencer outreach and content distribution loop on Make.com and n8n, cutting campaign turnaround <b>50%</b> while tripling collaboration volume with no added headcount."
   ]},
  {role:"AI Automation &amp; Growth Systems Consultant", org:"Voxelised · Independent consulting", when:"Jan 2023 – Aug 2024",
   pts:[
    "Designed and deployed end to end growth systems for agency clients: automated lead generation funnels, model-personalised outreach pipelines and content production workflows orchestrated across APIs, n8n, Make.com and Airtable.",
    "Built client-facing automation including content generation systems, CRM workflow automation and data enrichment pipelines (Apollo, Phantombuster) that reduced manual marketing operations <b>60 to 80%</b>.",
-   "Executed multi-channel campaigns for B2B and D2C clients, pairing audience segmentation with performance marketing to drive qualified pipeline at scale."
+   "Executed multi-channel campaigns for B2B and D2C clients, pairing audience segmentation with performance marketing to drive qualified pipeline at scale.",
+   "Applied consumer psychology frameworks to client brand positioning, messaging strategy and conversion funnel optimisation, bridging behavioural research with AI-driven marketing execution."
   ]},
  {role:"Graphic Designer &amp; Market Research Analyst", org:"ATHLARC · Remote", when:"Sep 2022 – Nov 2023",
   pts:[
-   "Built a production generative AI design workflow on Midjourney, DALL·E and Figma in 2022, ahead of mainstream adoption, producing on-brand visual content at <b>3x</b> the speed of traditional design.",
-   "Conducted in-depth market research across health, nutrition and fitness verticals, translating findings into content strategy, brand messaging and product positioning."
+   "Conducted in-depth research across health, nutrition and fitness verticals and built a catalogue using Midjourney, DALL·E and Figma in 2022, ahead of mainstream adoption, producing on-brand visual content at <b>3x</b> the speed of traditional design processes."
   ]},
  {role:"Marketing &amp; Content Strategist", org:"Media Monky · Remote", when:"2021 – 2022",
   pts:[
-   "Developed content and digital marketing strategy for early-stage brands across verticals, running social content, campaign ideation, audience research and influencer outreach across the full funnel."
+   "Developed content and digital marketing strategy for early-stage brands across verticals, running social content, campaign ideation, audience and behavioural research, and influencer outreach across the full funnel."
   ]}
 ];
 
 const SKILLS = [
  ["AI systems &amp; agents","Autonomous agent design and deployment, multi-agent orchestration, organisation-level workflow architecture, human-in-the-loop design, automated quality gates, Claude API, prompt engineering, model evaluation."],
- ["Content, social &amp; digital","Platform-native content strategy, editorial direction, rolling calendars, Instagram and LinkedIn growth, influencer pipeline design, community management, brand storytelling, campaign ideation, SEO, email, copywriting."],
- ["Marketing operations","Martech stack design, campaign workflow automation, CRM automation, content CMS architecture on Airtable, cross-channel tracking and attribution, HubSpot, GA4, reporting systems."],
- ["Engineering &amp; integration","REST APIs, webhooks, full stack application development, web UI, deployment pipelines, n8n, Make.com, Zapier, Airtable, Apollo, Modash, Phantombuster."],
+ ["Consumer psychology &amp; behavioural research","Consumer behaviour modeling, psychographic segmentation, motivation and decision-making analysis, qualitative interviewing, thematic analysis, primary and secondary research, competitive analysis, message and positioning testing, qualitative and quantitative methods, case study development."],
+ ["Content, social &amp; digital marketing","Platform-native content strategy, editorial direction, rolling content calendars, Instagram and LinkedIn growth, influencer pipeline design, community management, brand storytelling, campaign ideation, SEO, email marketing, copywriting."],
+ ["Marketing operations","Martech stack design, campaign workflow automation, CRM automation, content CMS architecture, Airtable, cross-channel tracking and attribution, HubSpot, GA4, reporting systems."],
+ ["Engineering &amp; integration","REST APIs, webhooks, full stack application development, web UI, deployment pipelines, n8n, Make.com, Zapier, Apollo, Modash, Phantombuster."],
  ["Performance marketing","Meta Ads Manager, Google Ads, LinkedIn Ads, dynamic creative testing, ROAS optimisation, funnel design, CRO, A/B testing."],
- ["Psychology &amp; behavioural","Consumer behaviour modeling, psychographic segmentation, motivation and decision frameworks applied to positioning and funnels, primary and secondary research, competitive analysis, qualitative and quantitative methods, case study development."],
- ["Programme &amp; design","End to end event delivery, vendor and stakeholder management, logistics and operations, Shopify, Figma, Canva, Adobe Photoshop and Illustrator, Notion."]
+ ["Programme &amp; design","End to end event delivery, vendor and stakeholder management, logistics and ops, Shopify, Figma, Canva, Adobe Photoshop and Illustrator, Notion."]
 ];
 
 const EDUCATION = [
- {role:"M.A. Applied Psychology", org:"Tata Institute of Social Sciences (TISS), Mumbai", when:"2023 – 2025",
-  pts:["Behavioural research and consumer modeling, the grounding underneath both the systems work and the content work."]},
+ {role:"M.A. Applied Psychology", org:"Tata Institute of Social Sciences (TISS), Mumbai", when:"2023",
+  pts:["The human-behaviour lens that sits underneath the marketing and the systems."]},
  {role:"B.A. (Hons.) Psychology", org:"Indraprastha College for Women, University of Delhi", when:"2020 – 2023", pts:[]}
 ];
 
@@ -1257,17 +1270,18 @@ const SIGILS = [
 /* ═══════════════════════ STATE ═══════════════════════ */
 const RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const MOB = window.matchMedia("(max-width:900px)").matches || ('ontouchstart' in window && innerWidth<1100);
-const SEG = MOB?700:800, SEGS = MOB?8:11;
+const SEG = MOB?700:800, SEGS = MOB?7:11;
 const CW = MOB?820:1500, CH = MOB?1460:1000, RW = Math.round(CW*1.08);
-const SW = MOB?1040:1600, SH = MOB?1580:1000;
+const SW = MOB?880:1600, SH = MOB?1340:1000;
 const MAXZ = SEGS*SEG - 260;
 
+const LONG = MOB;                       // continuous-plane corridor on phones
 const S = {stage:"gate", camZ:0, want:0, mx:0, my:0, rx:0, ry:0, yaw:0, pitch:0, t:0, drift:false, dragged:false, keys:{}, got:new Set(), read:new Set(), chapter:"prologue", opened:false};
 
 const $ = s=>document.querySelector(s);
 const $$ = s=>[...document.querySelectorAll(s)];
 const world=$("#world"), scaler=$("#scaler");
-scaler.style.width=SW+"px"; scaler.style.height=SH+"px"; scaler.style.perspective=(MOB?760:900)+"px";
+scaler.style.width=SW+"px"; scaler.style.height=SH+"px"; scaler.style.perspective=(MOB?640:900)+"px";
 world.style.setProperty("--CW",CW+"px");
 world.style.setProperty("--CH",CH+"px");
 world.style.setProperty("--SEG",SEG+"px");
@@ -1316,18 +1330,49 @@ function wallPanel(){
 
 function buildHall(){
   const frag=document.createDocumentFragment();
+  const haze=k=>Math.min(.74,Math.pow(Math.max(0,k)/(SEGS-1),1.2)*.82);   // depth haze
+  const A=a=>`rgba(8,3,8,${a.toFixed(3)})`;
+  const dim=(n,deg,a,b)=>{n.style.setProperty("--dim",`linear-gradient(${deg}deg,${A(a)},${A(b)})`);return n;};
+
+  /* Phones cannot afford one composited surface per bay, so the four surfaces of the
+     corridor are drawn once, full length, with the shelves tiled along them. */
+  if(LONG){
+    const L=SEGS*SEG;
+    const ramp=(deg,flip)=>{
+      const s=[];
+      for(let i=0;i<=SEGS;i++){
+        const t=flip?1-i/SEGS:i/SEGS;
+        s.push([t,haze(i)]);
+      }
+      s.sort((a,b)=>a[0]-b[0]);
+      return `linear-gradient(${deg}deg,${s.map(([t,a])=>`${A(a)} ${(t*100).toFixed(1)}%`).join(",")})`;
+    };
+    const sized=(n,w,hh)=>{n.style.width=w+"px";n.style.height=hh+"px";
+      n.style.marginLeft=(-w/2)+"px";n.style.marginTop=(-hh/2)+"px";n.dataset.nocull="1";return n;};
+    const wl=sized(wallPanel(),L,CH), wr=sized(wallPanel(),L,CH);
+    wl.classList.add("long"); wr.classList.add("long");
+    wl.style.setProperty("--dim",ramp(90,false));
+    wr.style.setProperty("--dim",ramp(90,true));
+    frag.appendChild(place(wl,-CW/2,0,-L/2," rotateY(90deg)"));
+    frag.appendChild(place(wr, CW/2,0,-L/2," rotateY(-90deg)"));
+    const fl=sized(el("pl floor"),CW,L), ce=sized(el("pl ceil"),CW,L);
+    fl.style.setProperty("--dim",ramp(180,true));
+    ce.style.setProperty("--dim",ramp(180,false));
+    frag.appendChild(place(fl,0, CH/2,-L/2," rotateX(90deg)"));
+    frag.appendChild(place(ce,0,-CH/2,-L/2," rotateX(-90deg)"));
+  }
+
   for(let i=0;i<SEGS;i++){
     const z=-(i+.5)*SEG;
-    const haze=k=>Math.min(.74,Math.pow(Math.max(0,k)/(SEGS-1),1.2)*.82);   // depth haze
     const f=haze(i), f2=haze(i+1);
-    const A=a=>`rgba(8,3,8,${a.toFixed(3)})`;
-    const dim=(n,deg,a,b)=>{n.style.setProperty("--dim",`linear-gradient(${deg}deg,${A(a)},${A(b)})`);return n;};
-    const wl=wallPanel(), wr=wallPanel(), fl=el("pl floor"), ce=el("pl ceil");
-    dim(wl,90,f,f2); dim(wr,90,f2,f); dim(fl,180,f2,f); dim(ce,180,f,f2);
-    frag.appendChild(place(wl,-CW/2,0,z," rotateY(90deg)"));
-    frag.appendChild(place(wr, CW/2,0,z," rotateY(-90deg)"));
-    frag.appendChild(place(fl,0, CH/2,z," rotateX(90deg)"));
-    frag.appendChild(place(ce, 0,-CH/2,z," rotateX(-90deg)"));
+    if(!LONG){
+      const wl=wallPanel(), wr=wallPanel(), fl=el("pl floor"), ce=el("pl ceil");
+      dim(wl,90,f,f2); dim(wr,90,f2,f); dim(fl,180,f2,f); dim(ce,180,f,f2);
+      frag.appendChild(place(wl,-CW/2,0,z," rotateY(90deg)"));
+      frag.appendChild(place(wr, CW/2,0,z," rotateY(-90deg)"));
+      frag.appendChild(place(fl,0, CH/2,z," rotateX(90deg)"));
+      frag.appendChild(place(ce, 0,-CH/2,z," rotateX(-90deg)"));
+    }
     // arch ribs at the bay boundaries (never at the camera plane)
     if(i>0){
       const rib=el("pl rib",'<svg viewBox="0 0 1600 1000" preserveAspectRatio="none"><use href="#i-arch"/></svg>');
@@ -1335,20 +1380,20 @@ function buildHall(){
       frag.appendChild(place(rib,0,0,-(i*SEG)));
     }
     // sconces on each rib
-    [-CW/2+CW*0.047, CW/2-CW*0.047].forEach((sx,k)=>{
+    (LONG ? [(i%2?1:-1)*(CW/2-CW*0.047)] : [-CW/2+CW*0.047, CW/2-CW*0.047]).forEach((sx,k)=>{
       const s=el("pl sconce",'<span class="flame"></span>');
       s.style.setProperty("--d",(rnd()*3).toFixed(2)+"s");
       s.querySelector(".flame").style.animationDelay=(rnd()*3).toFixed(2)+"s";
       frag.appendChild(place(s,sx,-CH*0.04,-(i*SEG)-SEG*0.5));
     });
-    if(i%2===1){
+    if(i%2===1 && !(LONG && i>3)){
       const c=el("pl chand",'<svg viewBox="0 0 120 140"><use href="#i-chand"/></svg>');
       frag.appendChild(place(c,(i%4===1?-70:70),-CH/2+CH*0.17,-(i*SEG)-SEG/2));
     }
 
   }
   // creatures
-  const n = MOB?8:16;
+  const n = MOB?6:16;
   for(let i=0;i<n;i++){
     const bfly = i%3===0;
     const c=el("pl crt "+(bfly?"bfly":"fae")+(i%2?" half":""));
@@ -1385,9 +1430,9 @@ buildHall();
 const FADERS=[...world.querySelectorAll(".crt,.sigil")];
 
 /* only paint the stretch of hall in view */
-const CULL=[...world.children].filter(n=>!["door","portalGlow","spill"].includes(n.id))
+const CULL=[...world.children].filter(n=>!["door","portalGlow","spill"].includes(n.id) && !n.dataset.nocull)
   .map(n=>({n,z:+n.dataset.z}));
-let lastCull=-1e9, CULL_FAR=-5700;
+let lastCull=-1e9, CULL_FAR=MOB?-3400:-5700;
 function cull(force){
   if(!force && Math.abs(S.camZ-lastCull)<90) return;
   lastCull=S.camZ;
@@ -1447,12 +1492,17 @@ addEventListener("resize",fit); fit();
 
 /* sample the first couple of seconds of walking and drop detail if it is slow */
 let qStart=0,qFrames=0,qDone=false;
+/* obviously constrained hardware starts lean rather than waiting to stutter */
+(function preQuality(){
+  const mem=navigator.deviceMemory, cores=navigator.hardwareConcurrency;
+  if((mem&&mem<=4)||(cores&&cores<=4)){ document.body.classList.add("q-low"); CULL_FAR=Math.max(CULL_FAR,-3800); }
+})();
 function quality(now){
   if(qDone||S.stage!=="hall")return;
   if(!qStart){qStart=now;return;}
   qFrames++;
   const el=now-qStart;
-  if(el<2200)return;
+  if(el<1200)return;
   qDone=true;
   const fps=qFrames/(el/1000);
   if(fps<38){ document.body.classList.add("q-low"); CULL_FAR=-4600; cull(true); }
@@ -1549,6 +1599,7 @@ function turnBy(d){ S.yaw=clamp(S.yaw+d,-62,62); }
 $("#turnL").onclick=()=>turnBy(-18);
 $("#turnR").onclick=()=>turnBy(18);
 $("#turnC").onclick=()=>{ S.yaw=0; S.pitch=0; };
+$("#btn-skip").onclick=()=>{ S.want=MAXZ; };
 
 addEventListener("keydown",e=>{
   const k=e.key.toLowerCase();
@@ -1631,11 +1682,13 @@ $("#btn-drift").onclick=e=>{ S.drift=!S.drift; e.currentTarget.classList.toggle(
 
 function crossThreshold(){
   const b=$("#bloom");
-  b.animate([{opacity:0},{opacity:1}],{duration:900,easing:"ease-in",fill:"forwards"});
+  try{ b.animate([{opacity:0},{opacity:1}],{duration:900,easing:"ease-in",fill:"forwards"}); }
+  catch(e){ b.style.opacity=1; }
   setTimeout(()=>{
     show("chamber"); S.stage="chamber";
     $("#hud").classList.remove("on"); $("#walkbar").classList.remove("on");
-    b.animate([{opacity:1},{opacity:0}],{duration:1200,easing:"ease-out",fill:"forwards"});
+    try{ b.animate([{opacity:1},{opacity:0}],{duration:1200,easing:"ease-out",fill:"forwards"}); }
+    catch(e){ b.style.opacity=0; }
     toast("The threshold","Something is turning in the light ahead.");
     audio.chime();
   },900);
@@ -1706,9 +1759,9 @@ const roleBlocks = list => list.flatMap(e=>[
 
 const CHAPTERS = {
  prologue:{title:"Prologue", blurb:"Psychology first. Systems second. Story always.", blocks:()=>[
-   `<p class="lead">I work psychology first. An M.A. in Applied Psychology from the Tata Institute of Social Sciences, plus a year of clinical casework, taught me to model why a person moves before I write a word or automate a workflow. Everything after that is execution.</p>`,
-   `<p class="lead">The marketing is where that gets tested. I founded Jen Curates, an Instagram-first brand, and took it past ₹12L in revenue. I led Smæccan's India launch to 8x growth in under six months at sub ₹200 CAC. I have built platform-native content strategies from zero across fashion, sport and education.</p>`,
-   `<p class="lead">The AI is how it scales. I architected eduInUK's organisation-level operating system from scratch, where 99% of recurring execution runs end to end through deployed agents. I build API and webhook layers and ship full stack applications with production web UI, and have been shipping generative AI production workflows since 2022.</p>`,
+   `<p class="lead">Content-led marketer and AI systems architect with a background in psychology. I bring a human-behaviour lens to brand, content and technology: researching deeply, understanding what makes people act, and turning those insights into creative work and scalable systems.</p>`,
+   `<p class="lead">I architected eduInUK's organisation-level operating system from scratch, automating 99% of recurring execution across content, onboarding, analytics and internal workflows through deployed agents.</p>`,
+   `<p class="lead">I founded Jen Curates (₹12L+ revenue), led Smæccan's India launch to 8x growth, and built platform-native content strategies across fashion, sport and education. Hands-on across autonomous agents, APIs, webhooks and full stack production applications. Building and shipping generative AI workflows since 2022.</p>`,
    `<div class="skillcard"><h4>The leverage</h4><p>Behavioural model first, then the hook, then the machine that runs it. Most people hold one of those three.</p></div>`,
    `<div class="skillcard"><h4>Now</h4><p>AI Systems Architect and Growth Lead at eduInUK, London and remote.</p></div>`,
    `<div class="skillcard"><h4>Based</h4><p>Mumbai, India. Working across IST and UK hours.</p></div>`,
@@ -1824,12 +1877,15 @@ function turnPage(dir){
     paint("left",target);
   }
   turner.style.display="block";
-  const anim=turner.animate(
-    [{transform:"rotateY(0deg)"},{transform:`rotateY(${dir>0?-180:180}deg)`}],
-    {duration:720,easing:"cubic-bezier(.42,.02,.24,1)"});
   const done=()=>{ PI=target; turner.style.display="none"; turner.className="turner"; flipping=false; render(); };
-  anim.onfinish=done;
-  setTimeout(()=>{ if(flipping) done(); },1100);   // safety net
+  let anim=null;
+  try{
+    anim=turner.animate(
+      [{transform:"rotateY(0deg)"},{transform:`rotateY(${dir>0?-180:180}deg)`}],
+      {duration:720,easing:"cubic-bezier(.42,.02,.24,1)"});
+  }catch(e){}
+  if(anim) anim.onfinish=done;
+  setTimeout(()=>{ if(flipping) done(); },anim?1100:60);   // safety net
 }
 
 function syncChips(active){
@@ -1913,9 +1969,14 @@ function buildManuscript(){
     (e.pts.length?`<ul>${e.pts.map(x=>`<li>${strip(x)}</li>`).join("")}</ul>`:"")).join("");
   $("#msBody").innerHTML=`
    <h1>${PROFILE.name}</h1>
-   <div class="sub">${PROFILE.role}<br>${PROFILE.email} · ${PROFILE.phone} · ${PROFILE.linkedin} · ${PROFILE.site} · ${PROFILE.city}</div>
+   <div class="sub">${PROFILE.role}<br>
+     <a href="mailto:${PROFILE.email}">${PROFILE.email}</a> ·
+     <a href="tel:+919149682812">${PROFILE.phone}</a> ·
+     <a href="https://${PROFILE.linkedin}" target="_blank" rel="noopener">${PROFILE.linkedin}</a> ·
+     <a href="https://${PROFILE.site}" target="_blank" rel="noopener">${PROFILE.site}</a> ·
+     ${PROFILE.city}</div>
    <h2>Profile</h2>
-   <p>Psychology-led marketer and AI systems architect. An M.A. in Applied Psychology (Tata Institute of Social Sciences) and a year of clinical casework underpin the behavioural modeling behind every funnel, hook and automation. Founded Jen Curates (₹12L+ revenue), led Smæccan's India launch to 8x growth in under six months at sub ₹200 CAC, and architected eduInUK's organisation-level operating system from scratch, where 99% of recurring execution runs end to end via deployed agents. Building platform-native content strategies from zero across fashion, sport and education, and shipping generative AI production workflows since 2022.</p>
+   <p>Content-led marketer and AI systems architect with a background in psychology. I bring a human-behaviour lens to brand, content, and technology, researching deeply, understanding what makes people act, and turning those insights into creative work and scalable systems. Architected eduInUK's organisation-level operating system from scratch, automating 99% of recurring execution across content, onboarding, analytics, and internal workflows through deployed agents. Founded Jen Curates (₹12L+ revenue), led Smæccan's India launch to 8x growth, and built platform-native content strategies across fashion, sport, and education. Hands-on across autonomous agents, APIs, webhooks, and full-stack production applications. Building and shipping generative-AI workflows since 2022.</p>
    ${sec("Experience",EXPERIENCE)}
    <h2>Core skills</h2>${SKILLS.map(([hd,txt])=>`<p><b>${hd}:</b> ${txt}</p>`).join("")}
    ${sec("Education",EDUCATION)}
@@ -1941,7 +2002,9 @@ const audio={
     this.on=userWants;
     if(!userWants)return;
     if(!this.ctx){
-      try{ this.ctx=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ return; }
+      const AC=window.AudioContext||window.webkitAudioContext;
+      if(!AC){ this.on=false; return; }
+      try{ this.ctx=new AC(); }catch(e){ this.on=false; return; }
       const c=this.ctx, out=c.createGain(); out.gain.value=0; out.connect(c.destination); this.out=out;
       [55,82.4,110,164.8].forEach((f,i)=>{
         const o=c.createOscillator(), g=c.createGain(), lfo=c.createOscillator(), lg=c.createGain();
@@ -1952,8 +2015,10 @@ const audio={
       });
       const flt=c.createBiquadFilter(); flt.type="lowpass"; flt.frequency.value=520;
     }
-    if(this.ctx.state==="suspended") this.ctx.resume();
-    this.out.gain.linearRampToValueAtTime(.1, this.ctx.currentTime+2.5);
+    try{
+      if(this.ctx.state==="suspended") this.ctx.resume();
+      this.out.gain.linearRampToValueAtTime(.1, this.ctx.currentTime+2.5);
+    }catch(e){}
   },
   stop(){ this.on=false; if(this.out) this.out.gain.linearRampToValueAtTime(0,this.ctx.currentTime+.6); },
   chime(){
@@ -1998,9 +2063,9 @@ const RIBBON=[
  {y:"2022",r:"Designer &amp; Research Analyst",o:"ATHLARC",m:"GenAI design workflow · 3x output"},
  {y:"2023",r:"Automation &amp; Growth Consultant",o:"Voxelised",m:"60–80% of manual ops removed"},
  {y:"2023",r:"Founder → Strategic Advisor",o:"Jen Curates",m:"₹12L+ revenue · ROAS +30% QoQ"},
- {y:"2024",r:"Social &amp; Growth Consultant",o:"Smæccan",m:"8x in under six months"},
+ {y:"2024",r:"Social Media &amp; Growth Consultant",o:"Smæccan",m:"8x in under six months"},
  {y:"2025",r:"Counsellor &amp; Researcher",o:"Tata Institute of Social Sciences",m:"Live clinical caseload"},
- {y:"2026",r:"AI Systems Architect &amp; Growth Lead",o:"eduInUK",m:"Org OS shipped in eight weeks"}
+ {y:"2026",r:"AI Systems Architect &amp; Growth Lead",o:"eduInUK (Edutuxia)",m:"Org OS shipped in eight weeks"}
 ];
 const STARS=["Claude API","n8n","Make.com","Airtable","REST APIs","Webhooks","Apollo","Modash","Phantombuster","Meta Ads","Google Ads","LinkedIn Ads","GA4","HubSpot","Shopify","Figma","Notion","Prompt engineering","Agent orchestration","CRO"];
 
@@ -2123,6 +2188,27 @@ const riftToLibrary=()=>{
 $("#rift-lib").onclick=riftToLibrary;
 $("#rift-lib2").onclick=riftToLibrary;
 
+
+/* ═══════════════════════ SAFETY NET ═══════════════════════ */
+/* If anything fatal happens on an unusual browser, the visitor still gets the CV. */
+(function safety(){
+  let fired=false;
+  const bail=()=>{
+    if(fired)return; fired=true;
+    try{
+      buildManuscript();
+      document.querySelectorAll(".scene").forEach(s=>s.classList.remove("on"));
+      const m=document.getElementById("manuscript");
+      m.classList.add("on"); m.scrollTop=0;
+      document.getElementById("hud").classList.remove("on");
+      document.getElementById("walkbar").classList.remove("on");
+    }catch(e){}
+  };
+  addEventListener("error",e=>{ if(S.stage==="gate") bail(); });
+  addEventListener("unhandledrejection",()=>{ if(S.stage==="gate") bail(); });
+  /* the gate is static markup, so if the script never wired it up, offer the CV */
+  setTimeout(()=>{ if(!$("#btn-enter").onclick) bail(); },2500);
+})();
 </script>
 </body>
 </html>
