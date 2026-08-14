@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://siddhangana-grimoire.vercel.app/sitemap.xml
